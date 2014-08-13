@@ -22,5 +22,6 @@
     <string name="pregunta13">Is Android property of Google?</string>
     <string name="pregunta14">Android\'s apps adjust their size automatically to the size of the display?</string>
     <string name="pregunta15">I can program an android application using C?</string>
+    <string name="Restart">Restart</string>
 
 </resources>

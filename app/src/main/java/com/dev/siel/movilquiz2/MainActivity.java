@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -19,6 +20,10 @@ public class MainActivity extends Activity {
     int puntaje=0;
     TextView quizText;
     TextView scoreValue;
+    Button trueButton;
+    Button falseButton;
+    Button nextButton;
+    Button restartButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,45 +47,94 @@ public class MainActivity extends Activity {
         preguntas[14]=getString(R.string.pregunta15);
         selecciones = new int[10];
         Random rand = new Random();
-        int visited[] = new int[10];
+        int visited[] = new int[15];
         int randomNum;
         for (int i = 0; i<10;i++){
-            randomNum = rand.nextInt(10);
-            if(visited[randomNum]!=1){
-                visited[randomNum]=1;
-                selecciones[i]=randomNum;
-            }
+            do {
+                randomNum = rand.nextInt(15);
+            }while(visited[randomNum]==1);
+            visited[randomNum]=1;
+            selecciones[i]=randomNum;
         }
         quizText=(TextView) findViewById(R.id.QuizText);
         scoreValue=(TextView) findViewById((R.id.scoreValue));
         quizText.setText(preguntas[selecciones[indice]]);
         scoreValue.setText(""+puntaje);
+        trueButton = (Button)findViewById(R.id.button);
+        falseButton = (Button)findViewById(R.id.button2);
+        nextButton = (Button)findViewById(R.id.button3);
+        restartButton = (Button)findViewById(R.id.button4);
     }
     public void trueClick(View v){
-        if(indice<10){
+        if(indice<9){
             if(respuestas[selecciones[indice]]==true)
                 puntaje++;
             indice++;
             quizText.setText(preguntas[selecciones[indice]]);
             scoreValue.setText(""+puntaje);
-        };
+        }else{
+            trueButton.setVisibility(Button.INVISIBLE);
+            falseButton.setVisibility(Button.INVISIBLE);
+            nextButton.setVisibility(Button.INVISIBLE);
+            quizText.setVisibility(TextView.INVISIBLE);
+            restartButton.setVisibility(TextView.VISIBLE);
+            if(respuestas[selecciones[indice]]==false)
+                puntaje++;
+            scoreValue.setText(""+puntaje);
+        }
 
     }
     public void falseClick(View v){
-        if(indice<10){
+        if(indice<9){
             if(respuestas[selecciones[indice]]==false)
                 puntaje++;
             indice++;
             quizText.setText(preguntas[selecciones[indice]]);
             scoreValue.setText(""+puntaje);
+        }else{
+            trueButton.setVisibility(Button.INVISIBLE);
+            falseButton.setVisibility(Button.INVISIBLE);
+            nextButton.setVisibility(Button.INVISIBLE);
+            quizText.setVisibility(TextView.INVISIBLE);
+            restartButton.setVisibility(TextView.VISIBLE);
+            if(respuestas[selecciones[indice]]==false)
+                puntaje++;
+            scoreValue.setText(""+puntaje);
         }
     }
     public void nextClick(View v){
-        if(indice<10){
+        if(indice<9){
             indice++;
             quizText.setText(preguntas[selecciones[indice]]);
             scoreValue.setText(""+puntaje);
+        }else{
+            trueButton.setVisibility(Button.INVISIBLE);
+            falseButton.setVisibility(Button.INVISIBLE);
+            nextButton.setVisibility(Button.INVISIBLE);
+            quizText.setVisibility(TextView.INVISIBLE);
+            restartButton.setVisibility(TextView.VISIBLE);
+            }
+    }
+    public void restartClick(View v){
+        trueButton.setVisibility(Button.VISIBLE);
+        falseButton.setVisibility(Button.VISIBLE);
+        nextButton.setVisibility(Button.VISIBLE);
+        quizText.setVisibility(TextView.VISIBLE);
+        restartButton.setVisibility(TextView.INVISIBLE);
+        Random rand = new Random();
+        int visited[] = new int[15];
+        int randomNum;
+        for (int i = 0; i<10;i++){
+            do {
+                randomNum = rand.nextInt(15);
+            }while(visited[randomNum]==1);
+            visited[randomNum]=1;
+            selecciones[i]=randomNum;
         }
+        indice=0;
+        puntaje=0;
+        scoreValue.setText(""+puntaje);
+        quizText.setText(preguntas[selecciones[indice]]);
     }
 
     @Override

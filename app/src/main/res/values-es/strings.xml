@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Movil Quiz</string>
+    <string name="hello_world">Hola Mundo!</string>
+    <string name="action_settings">Preferencias</string>
+    <string name="True">Verdadero</string>
+    <string name="False">Falso</string>
+    <string name="next">Siguiente</string>
+    <string name="pregunta1">SDK son las siglas para Software Design Kit?</string>
+    <string name="pregunta2">Android está basado en el kernel de linux?</string>
+    <string name="pregunta3">Si se cambia la orientación de vertical a horizontal, se ejecuta el método onCreate?</string>
+    <string name="pregunta4">APK es la abreviación para Android Package Kit?</string>
+    <string name="pregunta5">Si se crea una aplicación usando el SDK de android, esta aplicación se ejecutara en una máquina virtual?</string>
+    <string name="pregunta6">Dalvik sería a Android lo mismo que la JVM a una PC?</string>
+    <string name="pregunta7">Los Intents son utilizados para realizar intentos de cosas no permitidas por el S.O?</string>
+    <string name="pregunta8">El archivo AndroidManifest.xml es el primer archivo en ser leido cuando se abre una aplicación?</string>
+    <string name="pregunta9">Los fragments son reusables?</string>
+    <string name="pregunta10">Los permisos de una aplicación son declarados dentro de la Activity principal?</string>
+    <string name="pregunta11">Si quieres crear una aplicación nativa para android es necesario usar Java?</string>
+    <string name="pregunta12">Android puede ser usado en otros dispositivos aparte de telefonos inteligentes?</string>
+    <string name="pregunta13">Android es propiedad de google?</string>
+    <string name="pregunta14">Android ajusta el tamaño de la aplicación automaticamente al tamaño de la pantalla?</string>
+    <string name="pregunta15">Puedo programar una aplicación de android usando C??</string>
+    <string name="Restart">Reiniciar</string>
+
+</resources>
